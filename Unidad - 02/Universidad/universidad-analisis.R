@@ -1,5 +1,5 @@
 library(readxl)
-universidad <- read_excel("D:/Universidad/Ciclo7/AnalisisMultivariado/unidad02/universidad.xlsx")
+universidad <- read_excel("C:/Users/Martín Del Águila/Desktop/Ciclo 7 - Upeu/Análisis Multivariado/Unidad - 02/Universidad/universidad.xlsx")
 View(universidad)
 
 # Seleccionar solo las columnas numéricas
@@ -19,9 +19,8 @@ library(GGally)
 ggpairs(universidad_numeric, lower = list(continuous ="smooth"), diag = list(continuous = "barDiag"), axisLabels ="none")
 
 #pasos a seguir 2
-modelox = lm(universidad_numeric$Student_satisfaction ~ universidad_numeric$Founded_year + universidad_numeric$World_rank 
-             + universidad_numeric$score + universidad_numeric$Minimum_IELTS_score + 
-               universidad_numeric$fees + universidad_numeric$`Estimated_cost_of_living_per_year_(in_pounds)` + universidad_numeric$`Estimated_cost_of_living_per_year_(in_pounds)`)
+modelox = lm(universidad$Founded_year ~ universidad$UK_rank+universidad$World_rank+universidad$score
+             +universidad$Minimum_IELTS_score+universidad$fees+universidad$Student_satisfaction+universidad$`Estimated_cost_of_living_per_year_(in_pounds)`+universidad$Latitude)
 #es como ponerle en una bolsa e identificar que variable servira para nuestro modelo
 
 step(object = modelox, direction = "both", trace=1)
@@ -36,4 +35,4 @@ vif(modelox)
 # para ver el grafico
 library(rgl)
 # 3 variables 1y y 2x
-plot3d(universidad_numeric$Student_satisfaction, universidad_numeric$Founded_year, universidad_numeric$`Estimated_cost_of_living_per_year_(in_pounds)`, pch = ".", size = 0.5)
+plot3d(universidad$score , universidad$World_rank, universidad$Founded_year, pch = ".", size = 0.5)

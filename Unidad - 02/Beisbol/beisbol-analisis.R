@@ -1,5 +1,5 @@
 library(readxl)
-beisbol <- read_excel("D:/Universidad/Ciclo7/AnalisisMultivariado/unidad02/beisbol.xlsx")
+beisbol <- read_excel("C:/Users/Martín Del Águila/Desktop/Ciclo 7 - Upeu/Análisis Multivariado/Unidad - 02/Beisbol/beisbol.xlsx")
 View(beisbol)
 
 # Seleccionar solo las columnas numéricas
